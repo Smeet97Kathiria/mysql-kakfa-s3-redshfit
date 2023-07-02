@@ -17,7 +17,7 @@ def read_redshift_table_as_dataframe(table_name)->DataFrame:
         .option("url", env.redshift.uri) \
         .option("dbtable", table_name) \
         .option("redshift_tmp_dir", "/project/data") \
-        .option("tempdir", "s3a://redshift-ineuron/") \
+        .option("tempdir", "s3a://redshift-sk/") \
         .load()
         return df
 
@@ -31,7 +31,7 @@ def query_redshift_table_as_dataframe(query)->DataFrame:
         .option("url", env.redshift.uri) \
         .option("query", query) \
         .option("redshift_tmp_dir", "/project/data") \
-        .option("tempdir", "s3a://redshift-ineuron/") \
+        .option("tempdir", "s3a://redshift-sk/") \
         .load()
         return df
 
